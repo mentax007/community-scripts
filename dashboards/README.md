@@ -45,9 +45,9 @@ It should install into /etc/influxdb, so edit /etc/influxdb/influxdb.conf.  All 
 Add by the end:
 
 ```
-  [input_plugins.graphite]
+[input_plugins.graphite]
   enabled = true
-  port = 2003
+  bind-address = ":2003"
   database = "kazoo_stats"  # store graphite data in this database
 ```
 
