@@ -117,6 +117,12 @@ yum install graphite-api
 
 ```
 
+Create log file and adjust permissions:
+
+```
+touch /var/log/graphite-api.log
+chown graphite-api:graphite-api /var/log/graphite-api.log
+```
 
 #### Configure Graphite-API
 
@@ -174,7 +180,7 @@ mkdir -p /data/graphite/storage/
 
 #### Start Graphite-API
 
-It will be listening on tcp port 8000, as you can see in the command line below. If you want to change that, go ahead.  Make sure its accessible though.   
+It will be listening on tcp port 127.0.0.1:8888, as you can see in the command line below. If you want to change that, go ahead.  Make sure its accessible though.   
 
 ```
 systemctl start graphite-api; systemctl enable graphite-api
