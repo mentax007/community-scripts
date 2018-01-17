@@ -32,6 +32,8 @@ enabled = 1
 gpgcheck = 1
 gpgkey = https://repos.influxdata.com/influxdb.key
 EOF
+
+yum install influxdb
 ```
 
 #### Configure InfluxDB
