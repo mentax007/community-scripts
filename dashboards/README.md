@@ -65,7 +65,11 @@ Either follow the official instructions for creating your first database here: h
 -or-
 
 ```
-As of version 1.3, the web admin interface is no longer available in InfluxDB. The interface does not run on port 8083 and InfluxDB ignores the [admin] section in the configuration file if that section is present. Chronograf replaces the web admin interface with improved tooling for querying data, writing data, and database management. See Chronograf’s transition guide for more information.
+As of version 1.3, the web admin interface is no longer available in InfluxDB. 
+The interface does not run on port 8083 and InfluxDB ignores the [admin] section 
+in the configuration file if that section is present. Chronograf replaces the web 
+admin interface with improved tooling for querying data, writing data, and database management. 
+See Chronograf’s transition guide for more information.
 ```
 
 My Quick Setup Instructions:  Hit http://ip_or_hostname_of_influxdb_server:8083
