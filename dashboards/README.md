@@ -60,11 +60,15 @@ The database hasnt been created yet, but I'll make the presumption you're going 
 systemctl start influxdb; systemctl enable influxdb
 ```
 
-Either follow the official instructions for creating your first database here: http://influxdb.com/docs/v0.8/introduction/getting_started.html
+Either follow the official instructions for creating your first database here: https://docs.influxdata.com/influxdb/v1.4/introduction/getting_started/
 
 -or-
 
-My Quick Setup Instructions:  Hit http://ip_or_hostname_of_influxdb_server:8086
+```
+As of version 1.3, the web admin interface is no longer available in InfluxDB. The interface does not run on port 8083 and InfluxDB ignores the [admin] section in the configuration file if that section is present. Chronograf replaces the web admin interface with improved tooling for querying data, writing data, and database management. See Chronograf’s transition guide for more information.
+```
+
+My Quick Setup Instructions:  Hit http://ip_or_hostname_of_influxdb_server:8083
 
 Login with username root password root - then click cluster admins, and change your password right away.
 
