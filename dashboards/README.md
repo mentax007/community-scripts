@@ -51,7 +51,7 @@ Add by the end:
   database = "kazoo_stats"  # store graphite data in this database
 ```
 
-The database hasnt been created yet, but I'll make the presumption you're going to call your database __grafana-stats__
+The database hasnt been created yet, but I'll make the presumption you're going to call your database __kazoo_stats__
 
 
 #### Start InfluxDB
@@ -102,10 +102,10 @@ Graphite-API docs are here: http://graphite-api.readthedocs.org/en/latest/
 
 #### Install Graphite-API
 
-First, lets install the [EPEL](https://fedoraproject.org/wiki/EPEL) repo for Centos 6. Click the link if you need the repo for another version.
+First, lets install the [EPEL](https://fedoraproject.org/wiki/EPEL) repo for Centos 7. Click the link if you need the repo for another version.
 
 ```
-rpm -ivh http://fedora-epel.mirror.iweb.com/6/i386/epel-release-6-8.noarch.rpm
+yum install epel-release
 ```
 
 Then lets install pip and the rest of the packages and tools you'll need:
