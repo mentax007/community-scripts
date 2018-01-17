@@ -22,7 +22,7 @@ As of this writing, the current version is 1.4
 NOTE: InfluxDB will need to listen on (by default, anyways) TCP Ports 2003 (a graphite input handler), 8083 (admin gui), 8086 (api url) 
 
 Quick instructions:
-
+* Configure InfluxDB Repo
 ```
 cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
 [influxdb]
@@ -32,7 +32,10 @@ enabled = 1
 gpgcheck = 1
 gpgkey = https://repos.influxdata.com/influxdb.key
 EOF
+```
 
+* Install InfLuxDB
+```
 yum install influxdb
 ```
 
