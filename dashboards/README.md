@@ -42,6 +42,7 @@ yum install influxdb
 #### Configure InfluxDB
 
 It should install into /etc/influxdb, so edit /etc/influxdb/influxdb.conf.  All you really have to do is find the graphite input handler plugin and enable it, set the port, and specify the database to write to, like so:
+Add by the end:
 
 ```
   [input_plugins.graphite]
@@ -56,7 +57,7 @@ The database hasnt been created yet, but I'll make the presumption you're going 
 #### Start InfluxDB
 
 ```
-/etc/init.d/influxdb start
+systemctl start influxdb; systemctl enable influxdb
 ```
 
 Either follow the official instructions for creating your first database here: http://influxdb.com/docs/v0.8/introduction/getting_started.html
