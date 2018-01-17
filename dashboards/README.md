@@ -48,7 +48,7 @@ Add by the end:
   [input_plugins.graphite]
   enabled = true
   port = 2003
-  database = "grafana-stats"  # store graphite data in this database
+  database = "kazoo_stats"  # store graphite data in this database
 ```
 
 The database hasnt been created yet, but I'll make the presumption you're going to call your database __grafana-stats__
@@ -60,7 +60,13 @@ The database hasnt been created yet, but I'll make the presumption you're going 
 systemctl start influxdb; systemctl enable influxdb
 ```
 
-Either follow the official instructions for creating your first database here: https://docs.influxdata.com/influxdb/v1.4/introduction/getting_started/
+Follow the official instructions for creating your first database here: https://docs.influxdata.com/influxdb/v1.4/introduction/getting_started/
+
+```
+influx -precision rfc3339
+CREATE DATABASE kazoo_stats
+```
+
 
 -or-
 
