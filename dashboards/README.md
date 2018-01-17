@@ -45,10 +45,14 @@ It should install into /etc/influxdb, so edit /etc/influxdb/influxdb.conf.  All 
 Add by the end:
 
 ```
-[input_plugins.graphite]
-  enabled = true
+[[graphite]]
+  # Determines whether the graphite endpoint is enabled.
+  enabled = false
+  database = "kazoo_stats"
+  # retention-policy = ""
   bind-address = ":2003"
-  database = "kazoo_stats"  # store graphite data in this database
+  # protocol = "tcp"
+  # consistency-level = "one"
 ```
 
 The database hasnt been created yet, but I'll make the presumption you're going to call your database __kazoo_stats__
