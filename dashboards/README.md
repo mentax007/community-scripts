@@ -16,26 +16,27 @@ Purpose: Influx is the data store, a fast time series database
 
 #### Install InfluxDB 
 
-Full instructions here: http://influxdb.com/docs/v0.8/introduction/installation.html
-As of this writing, the current version is 0.8.3
+Full instructions here: https://docs.influxdata.com/influxdb/v1.4/introduction/installation/
+As of this writing, the current version is 1.4
 
 NOTE: InfluxDB will need to listen on (by default, anyways) TCP Ports 2003 (a graphite input handler), 8083 (admin gui), 8086 (api url) 
 
 Quick instructions:
 
 ```
-# for 64-bit systems
-wget http://s3.amazonaws.com/influxdb/influxdb-latest-1.x86_64.rpm
-sudo rpm -ivh influxdb-latest-1.x86_64.rpm
-
-# for 32-bit systems
-wget http://s3.amazonaws.com/influxdb/influxdb-latest-1.i686.rpm
-sudo rpm -ivh influxdb-latest-1.i686.rpm
+cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
+[influxdb]
+name = InfluxDB Repository - RHEL \$releasever
+baseurl = https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable
+enabled = 1
+gpgcheck = 1
+gpgkey = https://repos.influxdata.com/influxdb.key
+EOF
 ```
 
 #### Configure InfluxDB
 
-It should install into /opt/influxdb, so edit /opt/influxdb/shared/config.toml.  All you really have to do is find the graphite input handler plugin and enable it, set the port, and specify the database to write to, like so:
+It should install into /etc/influxdb, so edit /etc/influxdb/influxdb.conf.  All you really have to do is find the graphite input handler plugin and enable it, set the port, and specify the database to write to, like so:
 
 ```
   [input_plugins.graphite]
