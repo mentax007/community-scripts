@@ -111,38 +111,19 @@ First, lets install the [EPEL](https://fedoraproject.org/wiki/EPEL) repo for Cen
 ```
 yum install epel-release
 ```
-Install graphite-api
-
+Install Graphite-API:
 ```
 yum install graphite-api
 
 ```
 
 
-Currently, we need to download a patched version of graphite-api that supports caches, statsd instrumentation, and graphite-style templates.
-
-```
-cd /tmp
-wget -O graphite-api-patched.tar.gz https://github.com/Dieterbe/graphite-api/tarball/support-templates2
-tar zxvf graphite-api-patched.tar.gz
-cd Dieterbe-graphite-api-739165f/
-python setup.py install
-```
-
-You'll also need some supporting packages in order to run graphite-api. You can serve it from apache, nginx, gunicorn, whatever you want.  I've used straight-up gunicorn for simplicity here, so make sure gunicorn is avaiable on your system. For more detailed instructions on hosting behind nginx, apache, etc, see the graphite-api docs here: http://graphite-api.readthedocs.org/en/latest/deployment.html
-
-So let's get gunicorn on CentOS:
-
-```
-yum install python-gunicorn
-```
-
 #### Configure Graphite-API
 
-Create the file /etc/graphite-api.yaml and fill it like so:
+Edit the file /etc/graphite-api.yaml and fill it like so:
 
 ```
-search_index: /data/graphite/storage/index
+search_index: /var/lib/graphite-api/index
 finders:
   - graphite_influxdb.InfluxdbFinder
 influxdb:
@@ -150,7 +131,7 @@ influxdb:
    port: 8086
    user: INFLUXDB_USER_YOU_CREATED
    pass: INFLUXDB_PASSWORD_YOU_CREATED
-   db:   grafana-stats
+   db:   kazoo_stats
    cheat_times: true
 cache:
     # memcache seems to have issues with storing the series. the data is too big and doesn't store it, and doesn't allow bumping size in config that much
@@ -193,10 +174,10 @@ mkdir -p /data/graphite/storage/
 
 #### Start Graphite-API
 
-It will be listening on tcp port 8000, as you can see in the command line below. If you want to change that, go ahead.  Make sure its accessible though.  Note, my command line below wil run it in the background.  Remove the & at the end to run it in the foreground if you want to test for now.
+It will be listening on tcp port 8000, as you can see in the command line below. If you want to change that, go ahead.  Make sure its accessible though.   
 
 ```
-/usr/bin/python /usr/bin/gunicorn -b 0.0.0.0:8000 -w 2 --log-level debug graphite_api.app:app &
+systemctl start graphite-api; systemctl enable graphite-api
 ```
 
 ### Step 3: Netcat 
