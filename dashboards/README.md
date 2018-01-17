@@ -64,7 +64,7 @@ Either follow the official instructions for creating your first database here: h
 
 -or-
 
-My Quick Setup Instructions:  Hit http://ip_or_hostname_of_influxdb_server:8083
+My Quick Setup Instructions:  Hit http://ip_or_hostname_of_influxdb_server:8086
 
 Login with username root password root - then click cluster admins, and change your password right away.
 
