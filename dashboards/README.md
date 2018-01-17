@@ -47,7 +47,7 @@ Add by the end:
 ```
 [[graphite]]
   # Determines whether the graphite endpoint is enabled.
-  enabled = false
+  enabled = true
   database = "kazoo_stats"
   # retention-policy = ""
   bind-address = ":2003"
