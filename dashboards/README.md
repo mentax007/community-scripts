@@ -111,15 +111,13 @@ First, lets install the [EPEL](https://fedoraproject.org/wiki/EPEL) repo for Cen
 ```
 yum install epel-release
 ```
-
-Then lets install pip and the rest of the packages and tools you'll need:
+Install graphite-api
 
 ```
-yum install python-pip gcc libffi-devel python-devel cairo
-pip install influxdb
-pip install graphite-influxdb
-pip install Flask-Cache
+yum install graphite-api
+
 ```
+
 
 Currently, we need to download a patched version of graphite-api that supports caches, statsd instrumentation, and graphite-style templates.
 
